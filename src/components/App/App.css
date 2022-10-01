@@ -22,3 +22,11 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+.navBox {
+  color: #d32f2f;
+  background-color: rgb(35, 35, 35);
+  border-style: none none solid none;
+  border-width: 2px;
+  border-color: goldenrod;
+}
