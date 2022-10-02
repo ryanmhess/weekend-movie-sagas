@@ -3,7 +3,10 @@
     flex-wrap: wrap;
 }
 
-.posterBox {
+.posterBin {
     aspect-ratio: 2/3;
+}
 
+.posterBox {
+    display: inline-flex;
 }

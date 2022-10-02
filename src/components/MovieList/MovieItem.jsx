@@ -12,7 +12,7 @@ function MovieItem({ movie }) {
 
     const handleDetailsClick = () => {
         console.log(movie.id)
-        history.push(`/movie/${movie.id}`)
+        history.push(`/movies/${movie.id}`)
     }
     
     return (
@@ -21,7 +21,7 @@ function MovieItem({ movie }) {
                 <CardActionArea onClick={handleDetailsClick}>
                     <CardContent>
                         <CardMedia
-                        className="posterBox"
+                        className="posterBin"
                         component="img"
                         // height="300"
                         image={movie.poster}

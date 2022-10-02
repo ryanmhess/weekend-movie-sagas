@@ -13,7 +13,8 @@ import axios from 'axios';
 
 // Create the rootSaga generator function
 function* rootSaga() {
-    yield takeEvery('FETCH_MOVIES', fetchAllMovies);
+    yield takeEvery('FETCH_MOVIES', fetchAllMovies),
+    yield takeEvery('FETCH_MOVIE_DETAILS', fetchMovieDetails);
 }
 
 function* fetchAllMovies() {
@@ -22,11 +23,21 @@ function* fetchAllMovies() {
         const movies = yield axios.get('/api/movie');
         console.log('get all:', movies.data);
         yield put({ type: 'SET_MOVIES', payload: movies.data });
-
     } catch {
         console.log('get all error');
     }
-        
+}
+
+function* fetchMovieDetails(action) {
+    const movieId = action.payload;
+    const movieDetailsRes = yield axios({
+        method: 'GET',
+        url: `/api/movie/${movieId}`
+    })
+    yield put({
+        type: 'SET_MOVIE_DETAILS',
+        payload: movieDetailsRes.data
+    })
 }
 
 // Create sagaMiddleware
@@ -37,6 +48,18 @@ const movies = (state = [], action) => {
     switch (action.type) {
         case 'SET_MOVIES':
             return action.payload;
+        default:
+            return state;
+    }
+}
+
+//  Used to store movie details & clear when viewing new movie details
+const movieDetails = (state = {}, action) => {
+    switch(action.type) {
+        case 'SET_MOVIE_DETAILS':
+            return action.payload;
+        case 'CLEAR_MOVIE_DETAILS':
+            return {};
         default:
             return state;
     }
@@ -56,6 +79,7 @@ const genres = (state = [], action) => {
 const storeInstance = createStore(
     combineReducers({
         movies,
+        movieDetails,
         genres,
     }),
     // Add sagaMiddleware to our store

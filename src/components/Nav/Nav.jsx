@@ -2,7 +2,6 @@ import * as React from 'react';
 import { useHistory } from 'react-router-dom'
 import Button from '@mui/material/Button';
 import ButtonGroup from '@mui/material/ButtonGroup';
-import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 
@@ -10,10 +9,12 @@ function Nav() {
 
     const history = useHistory();
 
+    //  Button onClick function to take user to the main page
     const navToMain = () => {
         history.push('/movies');
     }
 
+    //  Button onClick function to take user to the contribute page
     const navToContribute = () => {
         history.push('/contribute');
     }
