@@ -2,3 +2,8 @@
     display : flex;
     flex-wrap: wrap;
 }
+
+.posterBox {
+    aspect-ratio: 2/3;
+
+}

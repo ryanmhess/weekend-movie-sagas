@@ -1,19 +1,14 @@
 import { useHistory } from 'react-router-dom'
 
 import Grid from '@mui/material/Grid';
-import Paper from '@mui/material/Paper';
-import { styled } from '@mui/material/styles';
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import Typography from '@mui/material/Typography';
+import { CardActionArea } from '@mui/material';
 
 function MovieItem({ movie }) {
     const history = useHistory()
-
-    const Item = styled(Paper)(({ theme }) => ({
-        backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
-        ...theme.typography.body2,
-        padding: theme.spacing(1),
-        textAlign: 'center',
-        color: theme.palette.text.secondary,
-    }));
 
     const handleDetailsClick = () => {
         console.log(movie.id)
@@ -21,17 +16,24 @@ function MovieItem({ movie }) {
     }
     
     return (
-        <>
-            <Grid item xs={3}>
-                <h3>{movie.title}</h3>
-                <Item>    
-                    <img src={movie.poster} alt={movie.title}/>
-                </Item>
-            </Grid>
-            <button onClick={handleDetailsClick} className="btn btn-light blockBtn" >
-                stuff
-            </button>
-        </>
+        <Grid item xs={3}>
+            <Card sx={{ maxWidth: 345, backgroundColor: 'transparent' }} elevation={0} >
+                <CardActionArea onClick={handleDetailsClick}>
+                    <CardContent>
+                        <CardMedia
+                        className="posterBox"
+                        component="img"
+                        // height="300"
+                        image={movie.poster}
+                        alt={movie.title}
+                        />
+                        <Typography gutterBottom variant="h7" >
+                            {movie.title}
+                        </Typography>  
+                    </CardContent>
+                </CardActionArea>
+            </Card>
+        </Grid>
     )
 }
 

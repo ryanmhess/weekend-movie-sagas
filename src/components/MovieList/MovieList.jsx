@@ -15,7 +15,7 @@ function MovieList() {
     }, []);
 
     return (
-        <Box sx={{ flexGrow: 1 }}>
+        <Box sx={{ maxWidth: 700 }}>
             <h1>MovieList</h1>
             <Grid container spacing={2}>
                 {movies.map(movie => (
