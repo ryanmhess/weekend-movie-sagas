@@ -6,6 +6,7 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
+import ImageListItem from '@mui/material/ImageListItem';
 
 function MovieItem({ movie }) {
     const history = useHistory()
@@ -16,26 +17,17 @@ function MovieItem({ movie }) {
     }
     
     return (
-        <Grid item xs={3}>
-            <Card sx={{ maxWidth: 345, backgroundColor: 'transparent' }} elevation={0} >
-                <CardActionArea onClick={handleDetailsClick}>
-                    <CardContent>
-                        <CardMedia
-                        className="posterBin"
-                        component="img"
-                        // height="300"
-                        image={movie.poster}
-                        alt={movie.title}
-                        />
-                        <Typography gutterBottom variant="h7" >
-                            {movie.title}
-                        </Typography>  
-                    </CardContent>
-                </CardActionArea>
-            </Card>
-        </Grid>
+        <ImageListItem>
+            <CardActionArea onClick={handleDetailsClick}>
+                <CardMedia
+                    className="posterBin"
+                    component="img"
+                    image={movie.poster}
+                    alt={movie.title}
+                />
+            </CardActionArea>
+        </ImageListItem>
     )
 }
-
 
 export default MovieItem

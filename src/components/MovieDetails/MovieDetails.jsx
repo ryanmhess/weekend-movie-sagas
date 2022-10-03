@@ -35,7 +35,7 @@ function MovieDetails() {
     }
 
     return (
-        <Box sx={{ m: 5, p: 1, fontWeigh: 'bold', border: '1px solid #daa520', borderRadius: 1, backgroundColor: 'rgb(35, 35, 35)' }}>
+        <Box className="moviesBox" sx={{ m: 5, p: 1, fontWeigh: 'bold', border: '1px solid #daa520', borderRadius: 1, backgroundColor: 'rgb(35, 35, 35)' }}>
             <Stack direction="row" spacing={2}>
                 <Stack direction="column" spacing={0}>
                 <Box sx={{ py: 1, pl: 3, mx: -1, color: '#d32f2f' }}>

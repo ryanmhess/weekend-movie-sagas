@@ -32,3 +32,12 @@
   justify-content: space-between;
   align-items: center;
 }
+
+.moviesBox {
+  justify-content: center;
+  align-content: center;
+}
+
+::placeholder { 
+  color: white;
+}
