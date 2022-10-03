@@ -3,7 +3,8 @@ import { useHistory } from 'react-router-dom'
 import Button from '@mui/material/Button';
 import ButtonGroup from '@mui/material/ButtonGroup';
 import Box from '@mui/material/Box';
-import Grid from '@mui/material/Grid';
+import Stack from '@mui/material/Stack';
+import Typography from '@mui/material/Typography';
 
 function Nav() {
 
@@ -20,18 +21,20 @@ function Nav() {
     }
 
     return (
-            <Box className="navBox" sx={{ flexGrow: 1 }} justifyContent="flex-end">
-                <Grid container spacing={2} direction="row" alignItems="center" justifyContent="flex-end" >
-                    <Grid item xs={8} md={10} >
-                        The Movies Saga
-                    </Grid>
-                    <Grid item xs={4} md={2} >
-                        <ButtonGroup variant="text" aria-label="text button group" color="error" >
+            <Box  sx={{ flexGrow: 1 }}>
+                <Stack className="navBox" direction="row" spacing={2}>
+                    <Box>
+                        <Typography sx={{ pl: 2, fontSize: 18, fontWeight: 'bold' }}>
+                            The Movies Saga
+                        </Typography>
+                    </Box>
+                    <Box>
+                        <ButtonGroup variant="text" aria-label="text button group" color="error" sx={{ justifyContent: 'flex-end' }}>
                             <Button onClick={navToMain}>Main</Button>
                             <Button onClick={navToContribute}>Contribute</Button>
                         </ButtonGroup>
-                    </Grid>
-                </Grid>
+                    </Box>
+                </Stack>
             </Box>
     )
 }

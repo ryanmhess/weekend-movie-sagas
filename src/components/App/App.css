@@ -29,4 +29,6 @@
   border-style: none none solid none;
   border-width: 2px;
   border-color: goldenrod;
+  justify-content: space-between;
+  align-items: center;
 }
